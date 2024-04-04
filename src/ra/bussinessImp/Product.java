@@ -91,7 +91,7 @@ public class Product implements IProduct,Comparable<Product> {
     public void setProductStatus(boolean productStatus) {
         this.productStatus = productStatus;
     }
-
+// nhập thông tin
     @Override
     public void inputData(Scanner scanner) {
         this.productId = inputProductId(scanner);
@@ -103,49 +103,49 @@ public class Product implements IProduct,Comparable<Product> {
         this.interest = this.exportPrice - this.importPrice;
         this.productStatus = inputProductStatus(scanner);
     }
-
+//lấy Id sản phẩm
     public int inputProductId(Scanner scanner) {
         System.out.println("Nhập mã ID cho sản phẩm: ");
         int inputId = Integer.parseInt(scanner.nextLine());
         return inputId;
     }
-
+// lấy tên sản phẩm
     public String inputProductName(Scanner scanner) {
         System.out.println("Nhập tên cho sản phẩm: ");
         String inputName = scanner.nextLine();
         return inputName;
     }
-
+// lấy tiêu đề sản phẩm
     public String inputProductTitle(Scanner scanner) {
         System.out.println("Nhập tiêu đề cho sản phẩm: ");
         String inputTitle = scanner.nextLine();
         return inputTitle;
     }
-
+//lấy  mô tả sản phẩm
     public String inputProductDescription(Scanner scanner) {
         System.out.println("Nhập mô tả cho sản phẩm: ");
         String inputDescription = scanner.nextLine();
         return inputDescription;
     }
-
+// lấy giá nhập
     public float inputProductImportPrice(Scanner scanner) {
         System.out.println("Giá nhập của sản phẩm: ");
         float inputImportPrice = Float.parseFloat(scanner.nextLine());
         return inputImportPrice;
     }
-
+// lấy giá xuất
     public float inputProductExportPrice(Scanner scanner) {
         System.out.println("Giá xuất của sản phẩm: ");
         float inputExportPrice = Float.parseFloat(scanner.nextLine());
         return inputExportPrice;
     }
-
+// lấy trạng thái
     public boolean inputProductStatus(Scanner scanner) {
         System.out.println("Trạng thái của sản phẩm: ");
         boolean inputExportPrice = Boolean.parseBoolean(scanner.nextLine());
         return inputExportPrice;
     }
-
+// hiển thị thông tin sản phẩm
     @Override
     public void displayData() {
         System.out.printf("Mã sản phẩm: %-8s || Tên sản phẩm: %-10s\nTiêu đề: %-10s\nMô tả: %-15s\nGiá nhập: %-5s || Giá xuất: %-5s || Lợi nhuận: %-5s\nTrạng thái: %-5s\n",
@@ -154,9 +154,9 @@ public class Product implements IProduct,Comparable<Product> {
         System.out.println();
 
     }
-
+// ghi đè compareTo
     @Override
     public int compareTo(Product o) {
-        return (int) (this.interest-o.getInterest());
+        return Float.compare(this.interest,o.getInterest());
     }
 }
